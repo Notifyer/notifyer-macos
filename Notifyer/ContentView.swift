@@ -4,18 +4,32 @@
 //
 //  Created by Noel Cabus on 29/2/24.
 //
-
 import SwiftUI
 
 struct ContentView: View {
+    @State var isRunning = false;
+    @StateObject var requester = NotificationsHandler()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Notifyer")
+                .font(.largeTitle)
+                .padding()
+            if(isRunning) {
+                Text("Receiving notifications").padding()
+                Text("Code: " + requester.code).padding()
+                requester.status ? Text("Server: Online") : Text("Server: Offline")
+            } else {
+                Text("Not receiving").padding()
+            }
+            
+            Button {
+                isRunning = !isRunning;
+                requester.handle(startTimer: isRunning)
+            } label: {
+                isRunning ? Text("Stop") : Text("Start")
+            }
         }
-        .padding()
     }
 }
 
