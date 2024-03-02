@@ -21,7 +21,7 @@ class NotificationsHandler: ObservableObject {
     
     @Published var code: String = "";
     @Published var status: Bool = false;
-    let queryUrl = "http://localhost:6923/data";
+    let queryUrl = "https://demos.capicua.org.es/notifyer/data";
     
     init() {
         code = generateSessionId();
