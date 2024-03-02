@@ -6,11 +6,13 @@
 //
 import Combine
 import Foundation
+import UserNotifications
 
 struct Get: Identifiable, Codable {
     let id: Int
     let title: String
     let description: String
+    let idSession: String
 }
 
 class NotificationsHandler: ObservableObject {
@@ -64,21 +66,32 @@ class NotificationsHandler: ObservableObject {
         return randomString
     }
     
-    func pushNotification(title: String, description: String) {
-        let script = """
-                display notification "\(description)" with title "\(title)"
-                """
-        let task = Process()
-        task.launchPath = "/usr/bin/osascript"
-        task.arguments = ["-e", script]
+    func sendNotification(identifier: String, title: String, description: String) {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: title, arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: description,
+                                                                arguments: nil)
+        content.sound = UNNotificationSound.default
         
-        task.launch()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            }
+        }
+        
     }
     
     func fetchData() async -> Bool {
         guard let downloadedData: [Get] = await WebService().downloadData(fromURL: queryUrl) else {return false}
         for data in downloadedData {
-            pushNotification(title: data.title, description: data.description)
+            sendNotification(identifier: "\(data.id)_\(data.idSession)" ,title: data.title, description: data.description)
+            do {
+                sleep(4)
+            }
         }
         
         return true;
