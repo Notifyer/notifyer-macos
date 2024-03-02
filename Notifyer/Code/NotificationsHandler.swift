@@ -3,7 +3,7 @@
 //  Notifyer
 //
 //  Created by Noel Cabus on 1/3/24.
-//  En colaboracion a Laceperro
+//  En colaboracion con Laceperro (con ayuda en si mismo a chatgpt (ya no se ni lo que estoy escribiendo))
 //
 import Combine
 import Foundation
