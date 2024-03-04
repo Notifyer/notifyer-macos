@@ -29,6 +29,12 @@ struct ContentView: View {
             } label: {
                 isRunning ? Text("Stop") : Text("Start")
             }
+            
+            Button {
+                NSApplication.shared.terminate(nil)
+            } label: {
+                Text("Quit")
+            }
         }
     }
 }
