@@ -1,51 +1,61 @@
 {
   "images" : [
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-16.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-32.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-32.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-64.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-128.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-256.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-256.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-512.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-512.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "traced-Captura de pantalla 2024-03-04 a las 11.16.32-1024.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

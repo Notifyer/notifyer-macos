@@ -21,15 +21,13 @@ class NotificationsHandler: ObservableObject {
     
     @Published var code: String = "";
     @Published var status: Bool = false;
-    let queryUrl = "https://demos.capicua.org.es/notifyer/data";
-    
-    init() {
-        code = generateSessionId();
-    }
+    let queryUrl = "https://notifyer.capicua.org.es/data";
     
     func handle(startTimer: Bool) {
         if (startTimer) {
-            print("starting...")
+            print("Starting...")
+            code = generateSessionId();
+            print("Started with session id: \(code)")
             start()
         } else {
             end()
@@ -87,7 +85,7 @@ class NotificationsHandler: ObservableObject {
     }
     
     func fetchData() async -> Bool {
-        guard let downloadedData: [Get] = await WebService().downloadData(fromURL: queryUrl) else {return false}
+        guard let downloadedData: [Get] = await WebService().downloadData(fromURL: queryUrl + "/\(code)") else {return false}
         for data in downloadedData {
             sendNotification(identifier: "\(data.id)_\(data.idSession)" ,title: data.title, description: data.description)
             do {
